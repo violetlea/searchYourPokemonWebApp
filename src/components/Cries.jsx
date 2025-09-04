@@ -1,15 +1,11 @@
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 
+export default function PlayCries(props) {
+	const { PlayAudio } = props;
 
-
-export default function PlayCries (props) {
-
-    const {PlayAudio} = props;
-
-    return(
-        <>
-            
-            <VolumeUpIcon className='audioEL' onClick={PlayAudio}/>
-        </>
-    );
+	return (
+		<>
+			<VolumeUpIcon className="audioEL" onClick={PlayAudio} />
+		</>
+	);
 }
