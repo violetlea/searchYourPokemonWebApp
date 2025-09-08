@@ -80,7 +80,105 @@
   cursor: pointer;
   vertical-align: middle;
 }
+.containerType {
+  display: inline-block;
+  margin: 5px;
 
+}
+
+.imgIcon {
+  height: 30px;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.bug {
+  background: #92BC2C;
+}
+
+.ghost {
+  background: #5F6DBC;
+}
+
+.dark {
+  background: #595761;
+}
+
+.fighting {
+  background: #D3425F;
+}
+
+.poison {
+  background: #B763CF;
+}
+
+.dragon {
+  background: #0C69C8;
+}
+
+.electric {
+  background: #F2D94E;
+}
+
+.fire {
+  background: #FBA54C;
+}
+
+.fairy {
+  background: #EE90E6;
+}
+
+.flying {
+  background: #A1BBEC;
+}
+
+.grass {
+  background: #5FBD58;
+}
+
+.ground {
+  background: #DA7C4D;
+}
+
+.ice {
+  background: #75D0C1;
+}
+
+.normal {
+  background: #A0A29F;
+}
+
+.poison {
+  background: #B763CF;
+}
+
+.psychic {
+  background: #FA8581;
+}
+
+.rock {
+  background: #C9BB8A;
+}
+
+.steel {
+  background: #5695A3;
+}
+
+.water {
+  background: #539DDF;
+}
+
+.typeName {
+  margin-top: auto;
+}
+.displayDamage {
+  display: grid;
+}
+
+.footerWord {
+  font-style: italic;
+ 
+}
 
 
 

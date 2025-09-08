@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -10,14 +10,16 @@ import { styled } from '@mui/material/styles';
 import HeaderDefault from './components/Header';
 import DisplayCard from './components/displayCard';
 import SearchBarContainer from './containers/SearchBarContainer';
+import DisplayFooter from './components/Footer';
 
+//todo : error handling if not found and lazy load
 
 function App() {
-
+  
+  const baseURL = "https://pokeapi.co/api/v2/";
   const [pokeObj,setPokeObj] = useState({});
   const [display,setDisplay] = useState(false);
-
-  //let newType = [];
+  const [damageRelation,setDamageRelation] = useState([]);
 
    const addPokeObj = (obj) =>  {
     //addNewTypeArray(obj)
@@ -26,20 +28,14 @@ function App() {
     if(obj != {} ) {
       setDisplay(true);
     }
-    
 
   }
 
-  /*const addNewTypeArray = (obj) => {
-    let renderObj = obj
-    console.log(renderObj)
-    for(let i = 0; i<renderObj['types'].length;i++){
-      newType.push(renderObj['types'][i]);
-      console.log(renderObj['types'][i]['type']['name'])
-    }
-  } */
-  //console.log(newType)
-  //console.log(pokeObj['types'][0]['type']['name']);
+  const addDamageRelation = (damage) => {
+    setDamageRelation(damage)
+  
+
+  }
 
   const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -49,8 +45,8 @@ function App() {
         backgroundColor:'#FEE8B6',
     
 }));
-  console.log(display)
-
+  //console.log(display)
+  //console.log(damageRelation);
 
   return (
     <>
@@ -69,19 +65,20 @@ function App() {
       </Item>
       <main>
         <Item> 
-           <SearchBarContainer addPokeObj={addPokeObj}/>
+           <SearchBarContainer addPokeObj={addPokeObj} addDamageRelation={addDamageRelation}/>
         </Item>
         { display === true && <Item>
-            <DisplayCard pokeObject = {pokeObj}/>
+            <DisplayCard pokeObject = {pokeObj} damage={damageRelation}/>
         </Item>}
       </main>
       </Stack>
     </Box> 
     
    
-    <footer>
+    {display === true && <footer>
+      <DisplayFooter />
 
-    </footer>
+    </footer>}
       
 
         

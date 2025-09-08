@@ -1,14 +1,14 @@
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/material";
 import Chip from "@mui/material/Chip";
 import PlayCries from "./Cries";
+import DamageRelationCard from "./DamageRelationCard";
 
 export default function DisplayCard(props) {
-	const { pokeObject } = props;
-	let type = pokeObject.types;
+	const { pokeObject,damage } = props;
+	
 	let display = pokeObject["types"]?.map((type) => type.type.name).join(", ");
 
 	/*const InputType = (pokeObject) => {
@@ -44,7 +44,7 @@ export default function DisplayCard(props) {
 		//backgroundColor: "#fff",
         //background: '#EEAECA',
         //background: 'linear-gradient(12deg,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%)',
-		
+		//border: '2px solid #FFC7A7',
         ...theme.typography.body2,
 		marginTop: -20,
 		padding: theme.spacing(0),
@@ -129,6 +129,9 @@ export default function DisplayCard(props) {
 								/>
 								<p className="pokeName">{pokeObject.weight}</p>
 							</Item2>
+						</Grid>
+						<Grid size={16}>
+							<DamageRelationCard arrDamage={damage}/>
 						</Grid>
 					</Grid>
 				</Box>
