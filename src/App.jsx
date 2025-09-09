@@ -1,93 +1,95 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import '@fontsource/roboto/500.css';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
-import HeaderDefault from './components/Header';
-import DisplayCard from './components/displayCard';
-import SearchBarContainer from './containers/SearchBarContainer';
-import DisplayFooter from './components/Footer';
+import { useState, Suspense, lazy } from "react";
+const DisplayCard = lazy(() => delayForDemo(import("./components/displayCard")));
+import "./App.css";
+import "@fontsource/roboto/500.css";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Stack from "@mui/material/Stack";
+import { styled } from "@mui/material/styles";
+import HeaderDefault from "./components/Header";
+//import DisplayCard from './components/displayCard';
+import SearchBarContainer from "./containers/SearchBarContainer";
+import DisplayFooter from "./components/Footer";
+import DisplayLoading from "./components/Loading";
 
-//todo : error handling if not found and lazy load
+//todo : and adjust pointer height and weight and add japanese name,pokedex index
 
 function App() {
-  
-  const baseURL = "https://pokeapi.co/api/v2/";
-  const [pokeObj,setPokeObj] = useState({});
-  const [display,setDisplay] = useState(false);
-  const [damageRelation,setDamageRelation] = useState([]);
+	const baseURL = "https://pokeapi.co/api/v2/";
+	const [pokeObj, setPokeObj] = useState({});
+	const [display, setDisplay] = useState(false);
+	const [damageRelation, setDamageRelation] = useState([]);
 
-   const addPokeObj = (obj) =>  {
-    //addNewTypeArray(obj)
-    setPokeObj(obj);
+	const addPokeObj = (obj) => {
+		//addNewTypeArray(obj)
+		setPokeObj(obj);
 
-    if(obj != {} ) {
-      setDisplay(true);
-    }
+		if (obj != {}) {
+			setDisplay(true);
+		}
+	};
 
-  }
+	const addDamageRelation = (damage) => {
+		setDamageRelation(damage);
+	};
 
-  const addDamageRelation = (damage) => {
-    setDamageRelation(damage)
-  
+	const Item = styled(Paper)(({ theme }) => ({
+		padding: theme.spacing(1),
 
-  }
+		border: "none",
+		boxShadow: "none",
+		backgroundColor: "#FEE8B6",
+	}));
+	//console.log(pokeObj)
+	//console.log(damageRelation);
 
-  const Item = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(1),
-        
-        border:'none',
-        boxShadow:'none',
-        backgroundColor:'#FEE8B6',
-    
-}));
-  //console.log(display)
-  //console.log(damageRelation);
+	return (
+		<>
+			<Box sx={{ width: "100%" }}>
+				<Stack
+					spacing={0}
+					sx={{
+						justifyContent: "center",
+						alignItems: "center",
+					}}>
+					<Item>
+						<header>
+							<HeaderDefault title="Search Your Pokemon!" />
+						</header>
+					</Item>
+					<main>
+						<Item>
+							<SearchBarContainer
+								addPokeObj={addPokeObj}
+								addDamageRelation={addDamageRelation}
+							/>
+						</Item>
+						{display === true && (
+							<Item>
+								<Suspense fallback={<DisplayLoading />}>
+									<DisplayCard pokeObject={pokeObj} damage={damageRelation} />
+								</Suspense>
 
-  return (
-    <>
-     <Box sx={{ width: '100%' }}>
-      <Stack 
-      spacing={0}
-      sx={{
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-      >
-      <Item>
-          <header>
-            <HeaderDefault title='Search Your Pokemon!'/>
-          </header>
-      </Item>
-      <main>
-        <Item> 
-           <SearchBarContainer addPokeObj={addPokeObj} addDamageRelation={addDamageRelation}/>
-        </Item>
-        { display === true && <Item>
-            <DisplayCard pokeObject = {pokeObj} damage={damageRelation}/>
-        </Item>}
-      </main>
-      </Stack>
-    </Box> 
-    
-   
-    {display === true && <footer>
-      <DisplayFooter />
+								{/*<DisplayCard pokeObject = {pokeObj} damage={damageRelation}/>*/}
+							</Item>
+						)}
+					</main>
+				</Stack>
+			</Box>
 
-    </footer>}
-      
-
-        
-
-    
-   
-      
-    </>
-  )
+			{display === true && (
+				<footer>
+					<DisplayFooter />
+				</footer>
+			)}
+		</>
+	);
+}
+async function delayForDemo(promise) {
+	await new Promise((resolve) => {
+		setTimeout(resolve, 2000);
+	});
+	return promise;
 }
 
-export default App
+export default App;

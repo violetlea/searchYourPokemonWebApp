@@ -1,6 +1,6 @@
 import SearchComp from "../components/Search";
 import ButtonDef from "../components/Button";
-import { useState } from "react";
+import { useState} from "react";
 import ErrorAlert from "../components/ErrorAlert";
 
 export default function SearchBarContainer(props) {
@@ -22,6 +22,7 @@ export default function SearchBarContainer(props) {
 
 		try {
 			const response = await fetch(endpoint);
+			
 			//let name = "";
 			if (response.ok) {
 				const jsonRes = await response.json();
@@ -29,9 +30,11 @@ export default function SearchBarContainer(props) {
 				pokeObj = jsonRes;
 				// name = jsonRes.name;
 				console.log(pokeObj);
-
-				objs = {
+				console.log(response.status)
+				
+					objs = {
 					id: pokeObj.id,
+					order: pokeObj.order,
 					name: pokeObj.name,
 					types: pokeObj.types,
 					weight: pokeObj.weight,
@@ -42,17 +45,29 @@ export default function SearchBarContainer(props) {
 						pokeObj["sprites"]["other"]["official-artwork"]["front_shiny"],
 					cries: pokeObj.cries.latest,
 					damages: pokeObj.types,
-				};
+					};  
+
+					props.addPokeObj(objs);
+
+					if(objs != {}) {
+						pokeTypes = objs["types"]?.map((type) => type.type.name);
+						GetDamageRelation(pokeTypes);
+
+					}
+					
+				
 				//console.log(objs);
-				props.addPokeObj(objs);
+				
 			}
 		} catch (error) {
 			console.log(error);
 		}
+		//pokeTypes = objs["types"]?.map((type) => type.type.name);
+		//GetDamageRelation(pokeTypes);
 
-		pokeTypes = objs["types"]?.map((type) => type.type.name);
+		
 		//console.log(pokeTypes);
-		GetDamageRelation(pokeTypes);
+		
 	};
 	//let pokeTypes = pokeObj["types"]?.map((type) => type.type.name);
 	//console.log(pokeObj)
@@ -112,6 +127,9 @@ export default function SearchBarContainer(props) {
 
 		if (text.length > 0) {
 			GetPokemonByName(text);
+			if(pokeObj == {}){
+				alert('null');
+			}
 
 		} else {
 			setError(true);
