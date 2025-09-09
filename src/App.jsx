@@ -13,6 +13,7 @@ import DisplayFooter from "./components/Footer";
 import DisplayLoading from "./components/Loading";
 
 //todo : and adjust pointer height and weight and add japanese name,pokedex index
+//convert to meter just divide by /10 and set .toFixed(1) for decimal point
 
 function App() {
 	const baseURL = "https://pokeapi.co/api/v2/";

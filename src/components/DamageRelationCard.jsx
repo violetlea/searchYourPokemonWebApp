@@ -43,6 +43,7 @@ export default function DamageRelationCard(props) {
 
 	const Item = styled(Paper)(({ theme }) => ({
 		///border: '2px solid #FFC7A7',
+		textTransform: "capitalize",
 		...theme.typography.body2,
 		marginTop: -20,
 		padding: theme.spacing(0),

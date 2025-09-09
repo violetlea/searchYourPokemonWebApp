@@ -5,6 +5,8 @@ import { Box } from "@mui/material";
 import Chip from "@mui/material/Chip";
 import PlayCries from "./Cries";
 import DamageRelationCard from "./DamageRelationCard";
+const meterSymbol = 'm';
+const kilogramSymbol = 'kg';
 
 export default function DisplayCard(props) {
 	const { pokeObject,damage } = props;
@@ -38,7 +40,7 @@ export default function DisplayCard(props) {
 		borderRadius: 20,
 		margin: 0,
 		borderStyle: "hidden",
-		textTransform: "capitalize",
+		//textTransform: "capitalize",
 	}));
 	const Item = styled(Paper)(({ theme }) => ({
 		//backgroundColor: "#fff",
@@ -73,7 +75,7 @@ export default function DisplayCard(props) {
 	return (
 		<>
 			<DemoPaper square={false}>
-				<h2>
+				<h2 className="pokeHeadName">
 					{pokeObject["name"]} <PlayCries PlayAudio={handleCries} />{" "}
 				</h2>
 				<br />
@@ -122,12 +124,12 @@ export default function DisplayCard(props) {
 									label="Height"
 									sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
 								/>
-								<p className="pokeName">{pokeObject.height}</p>
+								<p className="pokeName">{pokeObject.height} </p> {meterSymbol}
 								<Chip
 									label="Weight"
 									sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
 								/>
-								<p className="pokeName">{pokeObject.weight}</p>
+								<p className="pokeName">{pokeObject.weight} </p> {kilogramSymbol}
 							</Item2>
 						</Grid>
 						<Grid size={16}>

@@ -37,8 +37,8 @@ export default function SearchBarContainer(props) {
 					order: pokeObj.order,
 					name: pokeObj.name,
 					types: pokeObj.types,
-					weight: pokeObj.weight,
-					height: pokeObj.height,
+					weight: ((pokeObj.weight)/10).toFixed(1),
+					height: ((pokeObj.height)/10).toFixed(1),
 					imageOfficial:
 						pokeObj["sprites"]["other"]["official-artwork"]["front_default"],
 					imageOfficialShiny:

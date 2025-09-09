@@ -75,6 +75,7 @@
 }
 * {
   box-sizing: border-box;
+  font-family:  Roboto;
 }
 .audioEL {
   cursor: pointer;
@@ -184,6 +185,10 @@
 }
 .displayLoad {
   display: inline-block;
+}
+
+.pokeHeadName {
+  text-transform: capitalize;
 }
 
 
