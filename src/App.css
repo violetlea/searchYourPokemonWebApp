@@ -191,6 +191,10 @@
   text-transform: capitalize;
 }
 
+.linkStyle {
+  text-decoration: none;
+}
+
 
 
 
