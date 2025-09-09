@@ -40,7 +40,7 @@ export default function DamageRelationCard(props) {
 	});
 
 	// let displayDamage = arrDamage.map((damage) => damage['damage_relations']['double_damage_from'] )
-
+	//REFACTOR <BR/> 
 	const Item = styled(Paper)(({ theme }) => ({
 		///border: '2px solid #FFC7A7',
 		textTransform: "capitalize",

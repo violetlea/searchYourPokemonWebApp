@@ -12,11 +12,11 @@ import SearchBarContainer from "./containers/SearchBarContainer";
 import DisplayFooter from "./components/Footer";
 import DisplayLoading from "./components/Loading";
 
-//todo : and adjust pointer height and weight and add japanese name,pokedex index
-//convert to meter just divide by /10 and set .toFixed(1) for decimal point
+//todo :  add japanese name,pokedex index
+
 
 function App() {
-	const baseURL = "https://pokeapi.co/api/v2/";
+	
 	const [pokeObj, setPokeObj] = useState({});
 	const [display, setDisplay] = useState(false);
 	const [damageRelation, setDamageRelation] = useState([]);

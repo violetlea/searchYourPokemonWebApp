@@ -1,6 +1,6 @@
 import SearchComp from "../components/Search";
 import ButtonDef from "../components/Button";
-import { useState} from "react";
+import { useState } from "react";
 import ErrorAlert from "../components/ErrorAlert";
 
 export default function SearchBarContainer(props) {
@@ -52,6 +52,7 @@ export default function SearchBarContainer(props) {
 					if(objs != {}) {
 						pokeTypes = objs["types"]?.map((type) => type.type.name);
 						GetDamageRelation(pokeTypes);
+						GetPokemonSpeciesInfo(objs.name);
 
 					}
 					
@@ -120,6 +121,34 @@ export default function SearchBarContainer(props) {
 		props.addDamageRelation(damageObj)
 		
 	};
+
+	const GetPokemonSpeciesInfo = async (name) => {
+
+		const pokemonName = name;
+		const endpoint = `${baseURL}pokemon-species/${pokemonName}/`;
+		let pokeSpeciesObj = {};
+
+		try {
+			const res = await fetch(endpoint);
+
+			if(res.ok) {
+				const jsonRes = await res.json();
+				console.log(jsonRes);
+
+				pokeSpeciesObj = {
+					names : jsonRes['names'],
+					generalName : jsonRes['genera'],
+					evolvesFrom : jsonRes['evolves_from_species'],
+					color : jsonRes['color']
+				}
+
+				console.log(pokeSpeciesObj)
+			}
+
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
