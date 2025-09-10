@@ -195,6 +195,19 @@
   text-decoration: none;
 }
 
+.japName {
+  display: inline-block;
+  margin-block-start: auto;
+  margin-right: 10px;
+  font-style: italic;
+}
+
+.genus {
+    margin: auto;
+    margin-bottom: revert;
+    font-style: italic;
+}
+
 
 
 

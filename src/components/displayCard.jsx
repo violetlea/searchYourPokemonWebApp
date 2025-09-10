@@ -9,7 +9,7 @@ const meterSymbol = 'm';
 const kilogramSymbol = 'kg';
 
 export default function DisplayCard(props) {
-	const { pokeObject,damage } = props;
+	const { pokeObject,damage,speciesInfo } = props;
 	
 	let display = pokeObject["types"]?.map((type) => type.type.name).join(", ");
 
@@ -75,9 +75,22 @@ export default function DisplayCard(props) {
 	return (
 		<>
 			<DemoPaper square={false}>
-				<h2 className="pokeHeadName">
+				<div>
+					<h2 className="pokeHeadName">
 					{pokeObject["name"]} <PlayCries PlayAudio={handleCries} />{" "}
-				</h2>
+					</h2>
+					{
+						speciesInfo['names'].map((info) => 
+							(<p className="japName">{info.name}</p>)
+						)
+					}
+					{
+						speciesInfo['generalName'].map((genName) => 
+						(
+							<p className="genus">{genName.genus}</p>
+						))
+					}
+				</div>
 				<br />
 				<Box sx={{ flexGrow: 1 }}>
 					<Grid container spacing={2} columns={16}>

@@ -136,13 +136,14 @@ export default function SearchBarContainer(props) {
 				console.log(jsonRes);
 
 				pokeSpeciesObj = {
-					names : jsonRes['names'],
-					generalName : jsonRes['genera'],
+					names : jsonRes['names'].slice(0,2),
+					generalName : jsonRes['genera'].slice(7,8),
 					evolvesFrom : jsonRes['evolves_from_species'],
 					color : jsonRes['color']
 				}
 
-				console.log(pokeSpeciesObj)
+				//console.log(pokeSpeciesObj)
+				props.addPokemonSpeciesInfo(pokeSpeciesObj);
 			}
 
 		} catch (error) {
@@ -156,9 +157,7 @@ export default function SearchBarContainer(props) {
 
 		if (text.length > 0) {
 			GetPokemonByName(text);
-			if(pokeObj == {}){
-				alert('null');
-			}
+			
 
 		} else {
 			setError(true);
