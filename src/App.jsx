@@ -1,6 +1,6 @@
 import { useState, Suspense, lazy } from "react";
 const DisplayCard = lazy(() =>
-	delayForDemo(import("./components/displayCard"))
+	delayLazy(import("./components/displayCard"))
 );
 import "./App.css";
 import "@fontsource/roboto/500.css";
@@ -14,7 +14,7 @@ import SearchBarContainer from "./containers/SearchBarContainer";
 import DisplayFooter from "./components/Footer";
 import DisplayLoading from "./components/Loading";
 
-//todo :  add japanese name,pokedex index, refactor on displaydamage relation card
+//todo :  add pokedex index, 
 
 function App() {
 	const [pokeObj, setPokeObj] = useState({});
@@ -41,7 +41,6 @@ function App() {
 
 	const Item = styled(Paper)(({ theme }) => ({
 		padding: theme.spacing(1),
-
 		border: "none",
 		boxShadow: "none",
 		backgroundColor: "#FEE8B6",
@@ -92,7 +91,7 @@ function App() {
 		</>
 	);
 }
-async function delayForDemo(promise) {
+async function delayLazy(promise) {
 	await new Promise((resolve) => {
 		setTimeout(resolve, 2000);
 	});

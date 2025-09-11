@@ -64,142 +64,169 @@ export default function DamageRelationCard(props) {
 					/>
 					<br />
 					{doubleDamageFromLengthTotal > 0 && (
-						<Chip
+					<div >
+						<div>
+							<Chip
 							label="Double Damage From"
 							variant="outlined"
 							color="error"
 							sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
-						/>
+							/>
+						
+						</div>	
+						{arrDamage.map((damage) =>
+							damage["doubleDamageFrom"]?.map((dam, index) => (
+								<span className="containerType" key={index}>
+									<img
+										className={`imgIcon ${dam.name}`}
+										src={`src/images/${dam.name}.svg`}
+										
+									/>
+									<p className="typeName" >
+										{dam.name}
+									</p>
+								</span>
+							))
+						)}
+					</div>
 					)}
-					{doubleDamageFromLengthTotal > 0 && <br />}
-					{arrDamage.map((damage) =>
-						damage["doubleDamageFrom"]?.map((dam, index) => (
-							<span className="containerType">
-								<img
-									className={`imgIcon ${dam.name}`}
-									src={`src/images/${dam.name}.svg`}
-								/>
-								<p className="typeName" key={index}>
-									{dam.name}
-								</p>
-							</span>
-						))
-					)}
-					{doubleDamageFromLengthTotal > 0 && <br />}
 					{doubleDamageToLengthTotal > 0 && (
+					<div>
+						<div>
+							
 						<Chip
 							label="Double Damage To"
 							variant="outlined"
 							color="error"
 							sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
 						/>
-					)}
-					{doubleDamageToLengthTotal > 0 && <br />}
+					
+						</div>
 					{arrDamage.map((damage) =>
 						damage["doubleDamageTo"]?.map((dam, index) => (
-							<span className="containerType">
+							<span className="containerType" key={index}>
 								<img
 									className={`imgIcon ${dam.name}`}
 									src={`src/images/${dam.name}.svg`}
+									
 								/>
-								<p className="typeName" key={index}>
+								<p className="typeName" >
 									{dam.name}
 								</p>
 							</span>
 						))
 					)}
-					{doubleDamageToLengthTotal > 0 && <br />}
+
+					</div>
+					)}
 					{halfDamageFromLengthTotal > 0 && (
-						<Chip
+					<div>
+						<div>
+							<Chip
 							label="Half Damage From"
 							variant="outlined"
 							color="warning"
 							sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
 						/>
-					)}
-					{halfDamageFromLengthTotal > 0 && <br />}
-					{arrDamage.map((damage) =>
+						</div>
+						{arrDamage.map((damage) =>
 						damage["halfDamageFrom"]?.map((dam, index) => (
-							<span className="containerType">
+							<span className="containerType" key={index}>
 								<img
 									className={`imgIcon ${dam.name}`}
 									src={`src/images/${dam.name}.svg`}
+									
 								/>
-								<p className="typeName" key={index}>
+								<p className="typeName" >
 									{dam.name}
 								</p>
 							</span>
 						))
 					)}
-					{halfDamageFromLengthTotal > 0 && <br />}
+					</div>
+					)}
 					{halfDamageToLengthTotal > 0 && (
-						<Chip
+					<div>
+						<div>
+							<Chip
 							label="Half Damage To"
 							variant="outlined"
 							color="warning"
 							sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
 						/>
-					)}
-					{halfDamageToLengthTotal > 0 && <br />}
-					{arrDamage.map((damage) =>
+						</div>
+						{arrDamage.map((damage) =>
 						damage["halfDamageTo"]?.map((dam, index) => (
-							<span className="containerType">
+							<span className="containerType" key={index}>
 								<img
 									className={`imgIcon ${dam.name}`}
 									src={`src/images/${dam.name}.svg`}
+									
 								/>
-								<p className="typeName" key={index}>
+								<p className="typeName" >
 									{dam.name}
 								</p>
 							</span>
 						))
 					)}
-					{noDamageFromLengthTotal > 0 && <br />}
+					</div>
+					)}
 					{noDamageFromLengthTotal > 0 && (
-						<Chip
+					<div>
+						<div>
+							<Chip
 							label="No Damage From"
 							variant="outlined"
 							color="default"
 							sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
 						/>
+						</div>
+						{arrDamage.map((damage) =>
+							damage["noDamageFrom"]?.map((dam, index) => (
+								<span className="containerType" key={index}>
+									<img
+										className={`imgIcon ${dam.name}`}
+										src={`src/images/${dam.name}.svg`}
+										
+									/>
+									<p className="typeName" >
+										{dam.name}
+									</p>
+								</span>
+							))
+						)}
+
+					</div>
 					)}
-					{noDamageFromLengthTotal > 0 && <br />}
-					{arrDamage.map((damage) =>
-						damage["noDamageFrom"]?.map((dam, index) => (
-							<span className="containerType">
-								<img
-									className={`imgIcon ${dam.name}`}
-									src={`src/images/${dam.name}.svg`}
-								/>
-								<p className="typeName" key={index}>
-									{dam.name}
-								</p>
-							</span>
-						))
-					)}
-					{noDamageToLengthTotal > 0 && <br />}
 					{noDamageToLengthTotal > 0 && (
-						<Chip
+					<div>
+						<div>
+							<Chip
 							label="No Damage To"
 							variant="outlined"
 							color="default"
 							sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
 						/>
-					)}
-					{noDamageToLengthTotal > 0 && <br />}
-					{arrDamage.map((damage) =>
+						</div>
+						{arrDamage.map((damage) =>
 						damage["noDamageTo"]?.map((dam, index) => (
-							<span className="containerType">
+							<span className="containerType" key={index}>
 								<img
 									className={`imgIcon ${dam.name}`}
 									src={`src/images/${dam.name}.svg`}
+									
 								/>
-								<p className="typeName" key={index}>
+								<p className="typeName" >
 									{dam.name}
 								</p>
 							</span>
 						))
 					)}
+					</div>
+					
+					)}
+					
+					
 				</Item>
 			</Box>
 		</>
