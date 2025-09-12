@@ -39,10 +39,10 @@ function App() {
 		boxShadow: "none",
 		backgroundColor: "#FEE8B6",
 	}));
-
+//sx={{ width: "100%" }}
 	return (
 		<>
-			<Box sx={{ width: "100%" }}>
+			<Box >
 				<Stack
 					spacing={0}
 					sx={{

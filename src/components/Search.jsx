@@ -18,7 +18,7 @@ export default function SearchComp(props) {
 				backgroundColor: "white",
 				borderRadius: 20,
 				border: 0,
-				width: 500,
+				width: 400,
 			}}></TextField>
 	);
 }
