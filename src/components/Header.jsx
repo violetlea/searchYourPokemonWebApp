@@ -5,7 +5,7 @@ export default function HeaderDefault(props) {
 		<div className="marginBottomHead">
 			<img
 				className="imgHeader"
-				src="src/images/pngwing.com.png"
+				src="/images/pngwing.com.png"
 				alt="image first starter pokemon with derp face"
 			/>
 			<br />
