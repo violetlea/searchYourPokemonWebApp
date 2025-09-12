@@ -5,25 +5,13 @@ import { Box } from "@mui/material";
 import Chip from "@mui/material/Chip";
 import PlayCries from "./Cries";
 import DamageRelationCard from "./DamageRelationCard";
-const meterSymbol = 'm';
-const kilogramSymbol = 'kg';
+const meterSymbol = "m";
+const kilogramSymbol = "kg";
 
 export default function DisplayCard(props) {
-	const { pokeObject,damage,speciesInfo } = props;
-	
+	const { pokeObject, damage, speciesInfo } = props;
+
 	let display = pokeObject["types"]?.map((type) => type.type.name).join(", ");
-
-	/*const InputType = (pokeObject) => {
-
-        //const render = pokeObject
-        for (const value of pokeObject.values()) {
-                   console.log(value.type);
-                 
-                   //type.push(value.type.name);
-            }
-    } */
-
-	// console.log(type.length)
 
 	const handleCries = (event) => {
 		event.preventDefault();
@@ -40,22 +28,15 @@ export default function DisplayCard(props) {
 		borderRadius: 20,
 		margin: 0,
 		borderStyle: "hidden",
-		//textTransform: "capitalize",
 	}));
 	const Item = styled(Paper)(({ theme }) => ({
-		//backgroundColor: "#fff",
-        //background: '#EEAECA',
-        //background: 'linear-gradient(12deg,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%)',
-		//border: '2px solid #FFC7A7',
-        ...theme.typography.body2,
+		...theme.typography.body2,
 		marginTop: -20,
 		padding: theme.spacing(0),
 		textAlign: "center",
 		color: (theme.vars ?? theme).palette.text.secondary,
 		...theme.applyStyles("dark", {
 			backgroundColor: "#1A2027",
-            
-            
 		}),
 	}));
 
@@ -77,24 +58,19 @@ export default function DisplayCard(props) {
 			<DemoPaper square={false}>
 				<div>
 					<h2 className="pokeHeadName">
-					{pokeObject["name"]} <PlayCries PlayAudio={handleCries} />{" "}
+						{pokeObject["name"]} <PlayCries PlayAudio={handleCries} />{" "}
 					</h2>
-					{
-						speciesInfo['names'].map((info) => 
-							(<p className="japName">{info.name}</p>)
-						)
-					}
-					{
-						speciesInfo['generalName'].map((genName) => 
-						(
-							<p className="genus">{genName.genus}</p>
-						))
-					}
+					{speciesInfo["names"].map((info) => (
+						<p className="japName">{info.name}</p>
+					))}
+					{speciesInfo["generalName"].map((genName) => (
+						<p className="genus">{genName.genus}</p>
+					))}
 				</div>
 				<br />
 				<Box sx={{ flexGrow: 1 }}>
 					<Grid container spacing={2} columns={16}>
-						<Grid size={8} >
+						<Grid size={8}>
 							<Item>
 								<Chip
 									label="Default"
@@ -142,11 +118,12 @@ export default function DisplayCard(props) {
 									label="Weight"
 									sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
 								/>
-								<p className="pokeName">{pokeObject.weight} </p> {kilogramSymbol}
+								<p className="pokeName">{pokeObject.weight} </p>{" "}
+								{kilogramSymbol}
 							</Item2>
 						</Grid>
 						<Grid size={16}>
-							<DamageRelationCard arrDamage={damage}/>
+							<DamageRelationCard arrDamage={damage} />
 						</Grid>
 					</Grid>
 				</Box>

@@ -1,7 +1,5 @@
 import { useState, Suspense, lazy } from "react";
-const DisplayCard = lazy(() =>
-	delayLazy(import("./components/displayCard"))
-);
+const DisplayCard = lazy(() => delayLazy(import("./components/displayCard")));
 import "./App.css";
 import "@fontsource/roboto/500.css";
 import Box from "@mui/material/Box";
@@ -9,12 +7,9 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import HeaderDefault from "./components/Header";
-//import DisplayCard from './components/displayCard';
 import SearchBarContainer from "./containers/SearchBarContainer";
 import DisplayFooter from "./components/Footer";
 import DisplayLoading from "./components/Loading";
-
-//todo :  add pokedex index, 
 
 function App() {
 	const [pokeObj, setPokeObj] = useState({});
@@ -23,7 +18,6 @@ function App() {
 	const [pokemonSpecies, setPokemonSpecies] = useState({});
 
 	const addPokeObj = (obj) => {
-		//addNewTypeArray(obj)
 		setPokeObj(obj);
 
 		if (obj != {}) {
@@ -45,8 +39,6 @@ function App() {
 		boxShadow: "none",
 		backgroundColor: "#FEE8B6",
 	}));
-	//console.log(pokeObj)
-	console.log(pokemonSpecies);
 
 	return (
 		<>
@@ -73,10 +65,12 @@ function App() {
 						{display === true && (
 							<Item>
 								<Suspense fallback={<DisplayLoading />}>
-									<DisplayCard pokeObject={pokeObj} damage={damageRelation} speciesInfo={pokemonSpecies}/>
+									<DisplayCard
+										pokeObject={pokeObj}
+										damage={damageRelation}
+										speciesInfo={pokemonSpecies}
+									/>
 								</Suspense>
-
-								{/*<DisplayCard pokeObject = {pokeObj} damage={damageRelation}/>*/}
 							</Item>
 						)}
 					</main>
