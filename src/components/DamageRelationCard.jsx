@@ -75,7 +75,7 @@ export default function DamageRelationCard(props) {
 									<span className="containerType" key={index}>
 										<img
 											className={`imgIcon ${dam.name}`}
-											src={`src/images/${dam.name}.svg`}
+											src={`/images/${dam.name}.svg`}
 										/>
 										<p className="typeName">{dam.name}</p>
 									</span>
@@ -98,7 +98,7 @@ export default function DamageRelationCard(props) {
 									<span className="containerType" key={index}>
 										<img
 											className={`imgIcon ${dam.name}`}
-											src={`src/images/${dam.name}.svg`}
+											src={`/images/${dam.name}.svg`}
 										/>
 										<p className="typeName">{dam.name}</p>
 									</span>
@@ -121,7 +121,7 @@ export default function DamageRelationCard(props) {
 									<span className="containerType" key={index}>
 										<img
 											className={`imgIcon ${dam.name}`}
-											src={`src/images/${dam.name}.svg`}
+											src={`/images/${dam.name}.svg`}
 										/>
 										<p className="typeName">{dam.name}</p>
 									</span>
@@ -144,7 +144,7 @@ export default function DamageRelationCard(props) {
 									<span className="containerType" key={index}>
 										<img
 											className={`imgIcon ${dam.name}`}
-											src={`src/images/${dam.name}.svg`}
+											src={`/images/${dam.name}.svg`}
 										/>
 										<p className="typeName">{dam.name}</p>
 									</span>
@@ -167,7 +167,7 @@ export default function DamageRelationCard(props) {
 									<span className="containerType" key={index}>
 										<img
 											className={`imgIcon ${dam.name}`}
-											src={`src/images/${dam.name}.svg`}
+											src={`/images/${dam.name}.svg`}
 										/>
 										<p className="typeName">{dam.name}</p>
 									</span>
@@ -190,7 +190,7 @@ export default function DamageRelationCard(props) {
 									<span className="containerType" key={index}>
 										<img
 											className={`imgIcon ${dam.name}`}
-											src={`src/images/${dam.name}.svg`}
+											src={`/images/${dam.name}.svg`}
 										/>
 										<p className="typeName">{dam.name}</p>
 									</span>
