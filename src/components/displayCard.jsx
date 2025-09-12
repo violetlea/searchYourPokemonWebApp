@@ -113,12 +113,12 @@ export default function DisplayCard(props) {
 									label="Height"
 									sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
 								/>
-								<p className="pokeName">{pokeObject.height} </p> <span>{meterSymbol}</span>
+								<p className="pokeName">{pokeObject.height} </p> <span className="symbolFont">{meterSymbol}</span>
 								<Chip
 									label="Weight"
 									sx={{ margin: 2, paddingLeft: 1, paddingRight: 1 }}
 								/>
-								<p className="pokeName">{pokeObject.weight}  </p> <span>{kilogramSymbol}</span>
+								<p className="pokeName">{pokeObject.weight}  </p> <span className="symbolFont">{kilogramSymbol}</span>
 							</Item2>
 						</Grid>
 						<Grid size={16}>
