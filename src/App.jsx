@@ -42,7 +42,10 @@ function App() {
 //sx={{ width: "100%" }}
 	return (
 		<>
-			<Box >
+			<Box sx={{
+						justifyContent: "center",
+						alignItems: "center",
+					}} >
 				<Stack
 					spacing={0}
 					sx={{
